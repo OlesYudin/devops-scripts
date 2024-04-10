@@ -5,6 +5,21 @@ import json
 aws_profile_name = "default" # Specify name of AWS profile. Can be found in ~/.aws/config
 aws_region = "eu-west-1" # Specify AWS region where you want to update secrets. By default, secrets will be updated in 'eu-west-1' region
 
+# Example of secrets that is going to be updated
+secret_updates = {
+    "test_1": {
+        "key_1": "value_1",
+        "key_2": "value_2",
+        "key_3": "value_3"
+    },
+    "test_2": {
+        "key_1": "value_1",
+        "key_2": "value_2",
+        "key_3": "value_3",
+        "key_4": "value_4"
+    }
+}
+
 
 session = boto3.Session(profile_name=aws_profile_name)
 
@@ -45,19 +60,5 @@ def update_secrets(secret_updates, region_name="eu-west-1"):
             continue
 
 if __name__ == "__main__":
-    # Example
-    secret_updates = {
-        "test_1": {
-            "key_1": "value_1",
-            "key_2": "value_2",
-            "key_3": "value_3"
-        },
-        "test_2": {
-            "key_1": "value_1",
-            "key_2": "value_2",
-            "key_3": "value_3",
-            "key_4": "value_4"
-        }
-    }
-
+    
     update_secrets(secret_updates, region_name=aws_region)
