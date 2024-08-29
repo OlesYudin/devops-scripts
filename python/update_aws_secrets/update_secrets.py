@@ -2,7 +2,7 @@ import boto3
 import json
 
 # General variables
-aws_profile_name = "update" # "default" # Specify name of AWS profile. Can be found in ~/.aws/config
+aws_profile_name = "default" # Specify name of AWS profile. Can be found in ~/.aws/config
 aws_region = "eu-west-1" # Specify AWS region where you want to update secrets. By default, secrets will be updated in 'eu-west-1' region
 
 # Example of secrets that is going to be updated
