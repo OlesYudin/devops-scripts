@@ -39,9 +39,9 @@ def update_secrets(secret_updates, region_name="eu-west-1"):
 
             try:
                 secret_manager_client.create_secret(Name=secret_id, SecretString=json.dumps(current_secret_value))
-                print(f"Created a new secret with id: {secret_id}")
+                print(f"Created a new secret with id '{secret_id}' in '{region_name}' region")
             except Exception as e:
-                print(f"Error creating secret: {e}")
+                print(f"Error creating secret with id '{secret_id}': {e}")
                 continue
 
         # Update or add new key-value in secret
@@ -54,9 +54,9 @@ def update_secrets(secret_updates, region_name="eu-west-1"):
                 SecretId=secret_id,
                 SecretString=json.dumps(current_secret_value)
             )
-            print(f"Updated secret with id: {secret_id}")
+            print(f"Secret '{secret_id}' in '{region_name}' region was updated.")
         except Exception as e:
-            print(f"Error updating secret {secret_id}: {e}")
+            print(f"Error updating secret '{secret_id}': {e}")
             continue
 
 if __name__ == "__main__":
